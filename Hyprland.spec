@@ -40,7 +40,6 @@ BuildRequires: xcb-util-renderutil-devel
 BuildRequires: xorg-x11-server-Xwayland-devel
 BuildRequires: mesa-libgbm-devel
 BuildRequires: glslang-devel
-BuildRequires: git
 
 %description
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
@@ -54,7 +53,7 @@ VERBOSE=1 ninja -C _build/
 
 %install
 export DESTDIR=%{buildroot}
-VERBOSE=1 ninja -C _build/ install
+VERBOSE=1 make install
 
 %files
 %license LICENSE
