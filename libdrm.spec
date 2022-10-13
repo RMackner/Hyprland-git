@@ -86,9 +86,9 @@ BuildRequires:  pkgconfig(udev)
 BuildRequires:  chrpath
 
 # hardcode the 666 instead of 660 for device nodes
-Patch1001:      libdrm-make-dri-perms-okay.patch
+#Patch1001:      libdrm-make-dri-perms-okay.patch
 # remove backwards compat not needed on Fedora
-Patch1002:      libdrm-2.4.0-no-bc.patch
+#Patch1002:      libdrm-2.4.0-no-bc.patch
 
 %description
 Direct Rendering Manager runtime library
