@@ -101,13 +101,13 @@ Requires:       kernel-headers
 %description devel
 Direct Rendering Manager development package.
 
-%if %{with install_test_programs}
+#%if %{with install_test_programs}
 %package -n drm-utils
-Summary:        Direct Rendering Manager utilities
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+#Summary:        Direct Rendering Manager utilities
+#Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description -n drm-utils
-Utility programs for the kernel DRM interface.  Will void your warranty.
+#%description -n drm-utils
+#Utility programs for the kernel DRM interface.  Will void your warranty.
 %endif
 
 %prep
