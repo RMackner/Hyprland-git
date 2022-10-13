@@ -41,6 +41,7 @@ BuildRequires: xorg-x11-server-Xwayland-devel
 BuildRequires: mesa-libgbm-devel
 BuildRequires: glslang-devel
 BuildRequires: git
+BuildRequires: libdrm-devel
 
 %description
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
