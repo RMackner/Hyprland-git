@@ -1,5 +1,6 @@
 Name: Hyprland
 Version: v0.15.3beta
+Release: 8%{?dist}
 License: BSD
 Summary: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 Url: https://github.com/hyprwm/Hyprland/
@@ -157,3 +158,31 @@ VERBOSE=1 ninja -C _build/ install
 /usr/include/wlr/types/wlr_single_pixel_buffer_v1.h
 /usr/share/man/man1/Hyprland.1.gz
 /usr/share/man/man1/hyprctl.1.gz
+
+
+%changelog
+* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-8
+- update signature and checksum (bader@zaidan.pw)
+
+* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-7
+- Add missing files and manpages to list (bader@zaidan.pw)
+- fix package archive, spec comments (bader@zaidan.pw)
+
+* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-6
+- update package to version v0.15.0beta (bader@zaidan.pw)
+* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-5
+- add README (bader@zaidan.pw)
+
+* Tue Jul 12 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-4
+- 
+
+* Tue Jul 12 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-3
+- replace buildroot with prefix
+- add DESTDIR
+- comment out vulkan
+
+* Mon Jul 11 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-2
+- Uncomment vulkan
+
+* Mon Jul 11 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-1
+- new package built with tito
