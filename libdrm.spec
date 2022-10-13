@@ -265,7 +265,7 @@ cp %{SOURCE1} %{buildroot}%{_docdir}/libdrm
 %endif
 
 %if %{with install_test_programs}
-%files -n drm-utils
+#%files -n drm-utils
 %if %{with amdgpu}
 %{_bindir}/amdgpu_stress
 %endif
