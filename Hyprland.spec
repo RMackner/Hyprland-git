@@ -5,15 +5,6 @@ License: BSD
 Summary: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 Url: https://github.com/hyprwm/Hyprland/
 
-# Since tito support for submodules is iffy, we need to package manually.
-# commit ff5843bd85c60a3e3a7d21f26f78c8604dbba63f
-# sha256sum Hyprland-v0.15.0beta.tar.gz =  854c026fecdf4a311d24ec4e3922cffffc6fc1f9f2003fa360fd228140e7bc61
-# Sources can be obtained by:
-#   git clone --recursive https://github.com/hyprwm/Hyprland/ --branch v0.15.0beta
-#   find Hyprland/ -name ".git*" -exec rm {} \;
-#   mv Hyprland/ Hyprland-v0.15.0beta/
-#   tar cvzf v0.15.0beta.tar.gz Hyprland-v0.15.0beta/
-
 Source0: https://github.com/hyprwm/Hyprland/archive/refs/tags/%{version}.tar.gz
 
 ExclusiveArch: x86_64
@@ -168,31 +159,3 @@ VERBOSE=1 ninja -C _build/ install
 /usr/include/wlr/types/wlr_single_pixel_buffer_v1.h
 /usr/share/man/man1/Hyprland.1.gz
 /usr/share/man/man1/hyprctl.1.gz
-
-%changelog
-* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-8
-- update signature and checksum (bader@zaidan.pw)
-
-* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-7
-- Add missing files and manpages to list (bader@zaidan.pw)
-- fix package archive, spec comments (bader@zaidan.pw)
-
-* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-6
-- update package to version v0.15.0beta (bader@zaidan.pw)
-* Wed Oct 05 2022 Bader Zaidan <bader@zaidan.pw> v0.15.0beta-5
-- add README (bader@zaidan.pw)
-
-* Tue Jul 12 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-4
-- 
-
-* Tue Jul 12 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-3
-- replace buildroot with prefix
-- add DESTDIR
-- comment out vulkan
-
-* Mon Jul 11 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-2
-- Uncomment vulkan
-
-* Mon Jul 11 2022 Bader Zaidan <bader@zaidan.pw> v0.6.3beta-1
-- new package built with tito
-
