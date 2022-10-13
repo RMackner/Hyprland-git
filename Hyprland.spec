@@ -5,6 +5,12 @@ License: BSD
 Summary: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 Url: https://github.com/hyprwm/Hyprland/
 
+# Sources can be obtained by:
+#   git clone --recursive https://github.com/hyprwm/Hyprland/ --branch v0.15.3beta
+#   find Hyprland/ -name ".git*" -exec rm {} \;
+#   mv Hyprland/ Hyprland-v0.15.3beta/
+#   tar cvzf v0.15.3beta.tar.gz Hyprland-v0.15.3beta/
+
 Source0: https://github.com/hyprwm/Hyprland/archive/refs/tags/%{version}.tar.gz
 
 ExclusiveArch: x86_64
