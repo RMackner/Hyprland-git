@@ -42,10 +42,11 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 %autosetup -n %{name}-%{version}
 
 %build
-VERBOSE=1 meson _build
+VERBOSE=1 meson -Dprefix=%{_prefix} _build
 VERBOSE=1 ninja -C _build/
 
 %install
+export DESTDIR=%{buildroot}
 VERBOSE=1 ninja -C _build/ install
 
 %files
