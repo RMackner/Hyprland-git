@@ -158,3 +158,5 @@ VERBOSE=1 ninja -C _build/ install
 /usr/include/wlr/types/wlr_single_pixel_buffer_v1.h
 /usr/share/man/man1/Hyprland.1.gz
 /usr/share/man/man1/hyprctl.1.gz
+
+%changelog
