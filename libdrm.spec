@@ -85,11 +85,6 @@ BuildRequires:  pkgconfig(udev)
 %endif
 BuildRequires:  chrpath
 
-# hardcode the 666 instead of 660 for device nodes
-#Patch1001:      libdrm-make-dri-perms-okay.patch
-# remove backwards compat not needed on Fedora
-#Patch1002:      libdrm-2.4.0-no-bc.patch
-
 %description
 Direct Rendering Manager runtime library
 
@@ -101,14 +96,6 @@ Requires:       kernel-headers
 %description devel
 Direct Rendering Manager development package.
 
-#%if %{with install_test_programs}
-#%package -n drm-utils
-#Summary:        Direct Rendering Manager utilities
-#Requires:       %{name}%{?_isa} = %{version}-%{release}
-
-#%description -n drm-utils
-#Utility programs for the kernel DRM interface.  Will void your warranty.
-#%endif
 
 %prep
 %autosetup -p1
