@@ -11,6 +11,7 @@ ExclusiveArch: x86_64
 
 BuildRequires: ninja-build
 BuildRequires: cmake
+BuildRequires: make
 BuildRequires: meson
 BuildRequires: gcc-c++
 BuildRequires: libxcb-devel
@@ -41,12 +42,11 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 %autosetup -n %{name}-%{version}
 
 %build
-VERBOSE=1 meson -Dprefix=%{_prefix} _build
-VERBOSE=1 ninja -C _build/
+VERBOSE=1 make -Dprefix=%{_prefix}
 
 %install
 export DESTDIR=%{buildroot}
-VERBOSE=1 ninja -C _build/ install --tags runtime,man
+VERBOSE=1 make install
 
 %files
 %license LICENSE
