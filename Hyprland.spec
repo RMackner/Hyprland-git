@@ -82,12 +82,12 @@ very flexible IPC model allowing for a lot of customization, and more.
 
 
 %build
-%meson
-%meson_build
-
+meson -Dprefix=%{_prefix} -Dbuildtype=release _build
+ninja -C _build/
 
 %install
-%meson_install
+export DESTDIR=%{buildroot}
+ninja -C _build/ install
 
 # remove wlroots development files
 rm -r %{buildroot}%{_includedir}/wlr
