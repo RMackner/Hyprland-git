@@ -64,11 +64,6 @@ BuildRequires:  pkgconfig(xwayland)
 BuildRequires: libdrm-devel
 BuildRequires: git
 
-# Upstream insists on always building against very current snapshots of
-# wlroots, and doesn't provide a method for building against a system copy.
-# https://github.com/hyprwm/Hyprland/issues/302
-#Provides:       bundled(wlroots) = fd0b0276c9ecc159549acff48b932b83ec3b4f12
-
 
 %description
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't
@@ -78,7 +73,6 @@ very flexible IPC model allowing for a lot of customization, and more.
 
 %prep
 %autosetup -p 1 -c
-#cp subprojects/wlroots/LICENSE LICENSE-wlroots
 
 
 %build
