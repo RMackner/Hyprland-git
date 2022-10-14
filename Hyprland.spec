@@ -61,8 +61,8 @@ BuildRequires:  pkgconfig(xcb-xfixes)
 BuildRequires:  pkgconfig(xcb-xinput)
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(xwayland)
-BuildRequires: libdrm-devel
-BuildRequires: git
+BuildRequires:  libdrm-devel
+BuildRequires:  git
 
 
 %description
