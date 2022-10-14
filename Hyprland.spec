@@ -96,7 +96,6 @@ rm -r %{buildroot}%{_libdir}/pkgconfig/wlroots.pc
 
 
 %files
-%license LICENSE LICENSE-wlroots
 %{_bindir}/Hyprland
 %{_bindir}/hyprctl
 %{_mandir}/man1/Hyprland.1*
