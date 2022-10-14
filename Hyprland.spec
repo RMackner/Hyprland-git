@@ -1,0 +1,109 @@
+%global basever 0.15.3
+%global prerel  beta
+%global tag     v%{basever}%{?prerel}
+
+Name:           hyprland
+Version:        %{basever}%{?prerel:~%{prerel}}
+Release:        %autorelease
+Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
+
+# main source code is BSD-3-Clause
+# subprojects/wlroots is MIT
+License:        BSD-3-Clause and MIT
+URL:            https://github.com/hyprwm/Hyprland
+Source:         %{url}/releases/download/%{tag}/source-%{tag}.tar.gz
+
+BuildRequires:  meson
+BuildRequires:  gcc-c++
+
+BuildRequires:  pkgconfig(cairo)
+BuildRequires:  pkgconfig(egl)
+BuildRequires:  pkgconfig(libdrm)
+BuildRequires:  pkgconfig(libinput)
+BuildRequires:  pkgconfig(pango)
+BuildRequires:  pkgconfig(pangocairo)
+BuildRequires:  pkgconfig(pixman-1)
+BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(wayland-protocols)
+BuildRequires:  pkgconfig(wayland-scanner)
+BuildRequires:  pkgconfig(wayland-server)
+BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xkbcommon)
+
+# bundled wlroots build requirements
+BuildRequires:  glslang
+BuildRequires:  pkgconfig(egl)
+BuildRequires:  pkgconfig(gbm)
+BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  pkgconfig(libdrm)
+BuildRequires:  pkgconfig(libinput)
+BuildRequires:  pkgconfig(libseat)
+BuildRequires:  pkgconfig(libudev)
+BuildRequires:  pkgconfig(pixman-1)
+BuildRequires:  pkgconfig(vulkan)
+BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(wayland-protocols)
+BuildRequires:  pkgconfig(wayland-scanner)
+BuildRequires:  pkgconfig(wayland-server)
+BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xcb-composite)
+BuildRequires:  pkgconfig(xcb-dri3)
+BuildRequires:  pkgconfig(xcb-icccm)
+BuildRequires:  pkgconfig(xcb-present)
+BuildRequires:  pkgconfig(xcb-render)
+BuildRequires:  pkgconfig(xcb-render)
+BuildRequires:  pkgconfig(xcb-renderutil)
+BuildRequires:  pkgconfig(xcb-res)
+BuildRequires:  pkgconfig(xcb-shm)
+BuildRequires:  pkgconfig(xcb-xfixes)
+BuildRequires:  pkgconfig(xcb-xfixes)
+BuildRequires:  pkgconfig(xcb-xinput)
+BuildRequires:  pkgconfig(xkbcommon)
+BuildRequires:  pkgconfig(xwayland)
+BuildRequires: libdrm-devel
+
+# Upstream insists on always building against very current snapshots of
+# wlroots, and doesn't provide a method for building against a system copy.
+# https://github.com/hyprwm/Hyprland/issues/302
+#Provides:       bundled(wlroots) = fd0b0276c9ecc159549acff48b932b83ec3b4f12
+
+
+%description
+Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't
+sacrifice on its looks.  It supports multiple layouts, fancy effects, has a
+very flexible IPC model allowing for a lot of customization, and more.
+
+
+%prep
+%autosetup -p 1 -c
+#cp subprojects/wlroots/LICENSE LICENSE-wlroots
+
+
+%build
+%meson
+%meson_build
+
+
+%install
+%meson_install
+
+# remove wlroots development files
+rm -r %{buildroot}%{_includedir}/wlr
+rm -r %{buildroot}%{_libdir}/libwlroots.a
+rm -r %{buildroot}%{_libdir}/pkgconfig/wlroots.pc
+
+
+%files
+%license LICENSE LICENSE-wlroots
+%{_bindir}/Hyprland
+%{_bindir}/hyprctl
+%{_mandir}/man1/Hyprland.1*
+%{_mandir}/man1/hyprctl.1*
+%{_datadir}/hyprland
+%{_datadir}/wayland-sessions/hyprland.desktop
+
+
+
+%changelog
+%autochangelog
