@@ -11,7 +11,7 @@ Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its 
 # subprojects/wlroots is MIT
 License:        BSD-3-Clause and MIT
 URL:            https://github.com/hyprwm/Hyprland
-Source:         https://github.com/hyprwm/Hyprland/archive/refs/tags/v0.15.3beta.tar.gz
+Source:         https://github.com/hyprwm/Hyprland/releases/download/v0.15.3beta/source-v0.15.3beta.tar.gz
 
 BuildRequires:  meson
 BuildRequires:  gcc-c++
