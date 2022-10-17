@@ -1,4 +1,4 @@
-%global basever 0.15.3
+%global basever 0.16.0
 %global prerel  beta
 %global tag     v%{basever}%{?prerel}
 
