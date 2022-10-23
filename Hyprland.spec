@@ -2,7 +2,7 @@
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
-%define githash2 221ee83d440fb7dcbfd141ef3a459a5a973331b6
+%define githash2 c2d2773df57750081b16d56da13b5015d752cbd7
 
 Name:           hyprland
 Version:        3.git.%{shorthash}v0.16.0
