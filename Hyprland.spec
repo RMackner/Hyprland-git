@@ -76,13 +76,13 @@ very flexible IPC model allowing for a lot of customization, and more.
 
 
 %prep
-%autosetup -n %{name}-%{githash}
+%autosetup -n Hyprland-%{githash}
 cd /builddir/build/BUILD
 /usr/bin/tar xvf /builddir/build/SOURCES/wlroots-%{githash2}.tar.gz
 cd wlroots-%{githash2}
 /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
 cd /builddir/build/BUILD
-cp -r ./wlroots-%{githash2}/* ./%{name}-%{githash}/subprojects/wlroots/
+cp -r ./wlroots-%{githash2}/* ./Hyprland-%{githash}/subprojects/wlroots/
 
 %build
 meson -Dprefix=%{_prefix} -Dbuildtype=release _build
