@@ -1,17 +1,20 @@
-%global basever 0.16.0
-%global prerel  beta
-%global tag     v%{basever}%{?prerel}
+%define githash 10303259f7c6f3e64e74e9ca8a31d4223071d5f0
 
-Name:           hyprland
-Version:        %{basever}%{?prerel:~%{prerel}}
+%define shorthash %(c=%{githash}; echo ${c:0:10})
+
+%define githash2 221ee83d440fb7dcbfd141ef3a459a5a973331b6
+
+Name:           Hyprland
+Version:        1.git.%{shorthash}%{?dist}
 Release:        %autorelease
-Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
+Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 
 # main source code is BSD-3-Clause
 # subprojects/wlroots is MIT
 License:        BSD-3-Clause and MIT
 URL:            https://github.com/hyprwm/Hyprland
-Source:         %{url}/releases/download/%{tag}/source-%{tag}.tar.gz
+Source0:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
+Source1:        https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/%{githash2}/wlroots-%{githash2}.tar.gz
 
 BuildRequires:  meson
 BuildRequires:  gcc-c++
@@ -29,6 +32,7 @@ BuildRequires:  pkgconfig(wayland-scanner)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xkbcommon)
+BuildRequires:  tar
 
 # bundled wlroots build requirements
 BuildRequires:  glslang
@@ -72,8 +76,13 @@ very flexible IPC model allowing for a lot of customization, and more.
 
 
 %prep
-%autosetup -p 1 -c
-
+%autosetup -n %{name}-%{githash}
+cd /builddir/build/BUILD
+/usr/bin/tar xvf /builddir/build/SOURCES/wlroots-%{githash2}.tar.gz
+cd wlroots-%{githash2}
+/usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+cd /builddir/build/BUILD
+cp -r ./wlroots-%{githash2}/* ./%{name}-%{githash}/subprojects/wlroots/
 
 %build
 meson -Dprefix=%{_prefix} -Dbuildtype=release _build
