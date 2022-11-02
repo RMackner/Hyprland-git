@@ -78,8 +78,8 @@ very flexible IPC model allowing for a lot of customization, and more.
 %prep
 %autosetup -n Hyprland-%{githash}
 /usr/bin/tar xvf /builddir/build/SOURCES/wlroots-%{githash2}.tar.gz
-/usr/bin/chmod -Rf a+rX,u+w,g-w,o-w /builddir/build/SOURCES/wlroots-%{githash2}
-cp -r /builddir/build/SOURCES/wlroots-%{githash2}/* /builddir/build/SOURCES/Hyprland-%{githash}/subprojects/wlroots/*
+/usr/bin/chmod -Rf a+rX,u+w,g-w,o-w /builddir/build/SOURCES/wlroots-%{githash2}/*
+cp -r /builddir/build/SOURCES/wlroots-%{githash2}/* /builddir/build/SOURCES/Hyprland-%{githash}/subprojects/wlroots/
 
 %build
 meson -Dprefix=%{_prefix} -Dbuildtype=release _build
