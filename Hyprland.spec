@@ -1,4 +1,4 @@
-%define githash 95bbac8791cd0dbd62fc18974a5ba3b91cf61a04
+%define githash 5b548f5bc352a09bf9cf46a8eee0888abbcb2cec
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
@@ -77,12 +77,9 @@ very flexible IPC model allowing for a lot of customization, and more.
 
 %prep
 %autosetup -n Hyprland-%{githash}
-cd /builddir/build/BUILD
 /usr/bin/tar xvf /builddir/build/SOURCES/wlroots-%{githash2}.tar.gz
-cd wlroots-%{githash2}
-/usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
-cd /builddir/build/BUILD
-cp -r ./wlroots-%{githash2}/* ./Hyprland-%{githash}/subprojects/wlroots/
+/usr/bin/chmod -Rf a+rX,u+w,g-w,o-w /builddir/build/SOURCES/wlroots-%{githash2}
+cp -r /builddir/build/SOURCES/wlroots-%{githash2}/* /builddir/build/SOURCES/Hyprland-%{githash}/subprojects/wlroots/
 
 %build
 meson -Dprefix=%{_prefix} -Dbuildtype=release _build
