@@ -1,11 +1,11 @@
-%define githash 5b548f5bc352a09bf9cf46a8eee0888abbcb2cec
+%define githash c9eb0f3aabf4e6ea96aa6a20d2e2b10d19adeb36
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 %define githash2 c2d2773df57750081b16d56da13b5015d752cbd7
 
 Name:           hyprland
-Version:        17.git.%{shorthash}v0.17.0
+Version:        18.git.%{shorthash}v0.17.0
 Release:        %autorelease
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 
