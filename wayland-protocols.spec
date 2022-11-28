@@ -1,5 +1,5 @@
 Name:           wayland-protocols
-Version:        1.27
+Version:        1.30
 Release:        2%{?dist}
 Summary:        Wayland protocols that adds functionality not available in the core protocol
 
