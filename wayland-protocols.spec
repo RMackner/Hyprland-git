@@ -5,7 +5,7 @@ Summary:        Wayland protocols that adds functionality not available in the c
 
 License:        MIT
 URL:            https://wayland.freedesktop.org/
-Source0:        https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.27/wayland-protocols-1.27.tar.gz
+Source0:        https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.27/wayland-protocols-1.30.tar.gz
 
 BuildArch:      noarch
 
