@@ -116,6 +116,9 @@ rm -r %{buildroot}%{_libdir}/pkgconfig/wlroots.pc
 %{_datadir}/hyprland
 %{_datadir}/wayland-sessions/hyprland.desktop
 
+# hyprland-protocols 
+%{_datadir}/pkgconfig/hyprland-protocols.pc
+%{_datadir}/protocols/hyprland-toplevel-export-*.xml
 
 
 %changelog
