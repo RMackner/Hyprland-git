@@ -89,10 +89,10 @@ cp -r ./wlroots-%{githash2}/* ./Hyprland-%{githash}/subprojects/wlroots/
 
 cd /builddir/build/BUILD
 /usr/bin/tar xvf /builddir/build/SOURCES/%{githash3}.tar.gz
-cd %{githash3}
+cd hyprland-protocols-%{githash3}
 /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
 cd /builddir/build/BUILD
-cp -r ./%{githash3}/* ./Hyprland-%{githash}/subprojects/hyprland-protocols/
+cp -r ./hyprland-protocols-%{githash3}/* ./Hyprland-%{githash}/subprojects/hyprland-protocols/
 
 %build
 meson -Dprefix=%{_prefix} -Dbuildtype=release _build
