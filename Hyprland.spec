@@ -4,6 +4,8 @@
 
 %define githash2 86fc2199f85ac0e1089bb7fd5a0b5cbc432bdb67
 
+%define githash3 0dcff94fc10df2bbb66d3e1b5a1d6cfd3ada5515
+
 Name:           hyprland
 Version:        19.git.%{shorthash}v0.19.1
 Release:        %autorelease
@@ -83,6 +85,13 @@ cd wlroots-%{githash2}
 /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
 cd /builddir/build/BUILD
 cp -r ./wlroots-%{githash2}/* ./Hyprland-%{githash}/subprojects/wlroots/
+
+cd /builddir/build/BUILD
+/usr/bin/tar xvf /builddir/build/SOURCES/hyprland-protocols-%{githash3}.tar.gz
+cd hyprland-protocols-%{githash3}
+/usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+cd /builddir/build/BUILD
+cp -r ./hyprland-protocols-%{githash3}/* ./Hyprland-%{githash}/subprojects/hyprland-protocols/
 
 %build
 meson -Dprefix=%{_prefix} -Dbuildtype=release _build
