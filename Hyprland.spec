@@ -17,6 +17,7 @@ License:        BSD-3-Clause and MIT
 URL:            https://github.com/hyprwm/Hyprland
 Source0:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 Source1:        https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/%{githash2}/wlroots-%{githash2}.tar.gz
+Source2:        https://github.com/hyprwm/hyprland-protocols/archive/%{githash3}.tar.gz
 
 BuildRequires:  meson
 BuildRequires:  gcc-c++
